@@ -1,0 +1,23 @@
+{
+	"geode": "5.11.1",
+	"gd": {
+		"win": "2.2081",
+		"android": "2.2081",
+		"mac": "2.2081",
+		"ios": "2.2081"
+	},
+	"id": "theteamxw.yarm",
+	"name": "YARM",
+	"version": "v0.0.1",
+	"developer": "TheTeamXW",
+	"description": "Yet Another Replay Mod - A fully free and open source replay bot/mod for Geode.",
+	"dependencies": {
+		"geode.node-ids": ">=v1.23.3"
+	},
+	"resources": {
+		"sprites": [
+			"resources/logo.png",
+			"resources/button_yarm.png"
+		]
+	}
+}

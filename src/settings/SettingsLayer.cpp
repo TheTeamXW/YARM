@@ -56,27 +56,7 @@ void SettingsLayer::switchTab(int tab) {
                 this,
                 "Safe mode",
                 menu_selector(SettingsLayer::onSafeModeCheckbox),
-                true
-            ));
-            list->m_contentLayer->addChild(Checkbox::create(
-                this,
-                "Safe mode",
-                menu_selector(SettingsLayer::onSafeModeCheckbox)
-            ));
-            list->m_contentLayer->addChild(Checkbox::create(
-                this,
-                "Safe mode",
-                menu_selector(SettingsLayer::onSafeModeCheckbox)
-            ));
-            list->m_contentLayer->addChild(Checkbox::create(
-                this,
-                "Safe mode",
-                menu_selector(SettingsLayer::onSafeModeCheckbox)
-            ));
-            list->m_contentLayer->addChild(Checkbox::create(
-                this,
-                "Safe mode",
-                menu_selector(SettingsLayer::onSafeModeCheckbox)
+                Mod::get()->getSavedValue<bool>("safe-mode", true)
             ));
             list->m_contentLayer->updateLayout();
             m_contentLayer->addChild(list);
@@ -102,14 +82,19 @@ void SettingsLayer::onSafeModeCheckbox(CCObject* sender) {
             "No",
             "Yes",
             [checkbox](auto, bool btn2) {
-                if (!btn2) {
+                if (btn2) {
+                    Mod::get()->setSavedValue<bool>("safe-mode", false);
+                } else {
                     checkbox->toggle(true);
                 }
             }
         );
+        return;
     }
 
-    log::info("Checkbox enabled: {}", enabled);
+    Mod::get()->setSavedValue<bool>("safe-mode", true);
+
+    log::info("Safe mode enabled: {}", enabled);
 }
 
 void SettingsLayer::onTabClicked(CCObject* sender) {

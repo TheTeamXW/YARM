@@ -3,10 +3,10 @@
 
 ## Planned features
 - [X] Settings menu
-    - [] Safe Mode
-- [] Playback
-- [] Android support
-- [] iOS support
+    - [ ] Safe Mode
+- [ ] Playback
+- [ ] Android support
+- [ ] iOS support
 
 ## License
 This code is licensed under the **MIT** license.
